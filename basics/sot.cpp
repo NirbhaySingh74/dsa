@@ -11,14 +11,15 @@ int main()
     v.push_back(11);
     v.push_back(13);
 
- 
-    sort(arr.begin(), arr.end());
-    sort(v.begin(), v.end());
+    sort(arr.begin(), arr.end(), greater<>());
+    sort(v.begin(), v.end(), greater<>());
+    cout << "Array Element : ";
     for (int num : arr)
     {
         cout << num << " ";
     }
-
+    cout << endl
+         << "Vector Element : ";
     for (auto it : v)
     {
         cout << it << " ";
