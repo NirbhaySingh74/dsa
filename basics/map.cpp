@@ -7,7 +7,8 @@ int main()
     map["Nirbhay"] = 1;
     map["kunal"] = 2;
     map["Deepak"] = 3;
-    for (auto it : map)
+    map["John"] = 4;
+        for (auto it : map)
     {
         cout << "key - " << it.first << ", values - " << it.second << endl;
     }
