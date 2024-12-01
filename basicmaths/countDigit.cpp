@@ -6,7 +6,7 @@ int main()
     cout << "Enter Number" << endl;
     cin >> num;
 
-    while (num > 0)
+    while (num != 0)
     {
         /* code */
         int lastDigit = num % 10;
