@@ -56,19 +56,32 @@ bool isArmstrong(int num)
     return sum == num;
 }
 
+void printallDivisor(int n)
+{
+    for (int i = 1; i <= n; i++)
+    {
+        if (n % i == 0)
+        {
+            cout << i << " ";
+        }
+    }
+}
+
 int main()
 {
     int n;
-    cout << "Enter The Number" << endl;
-    cin >> n;
+    // cout << "Enter The Number" << endl;
+    // cin >> n;
     // cout << revnum(n) << endl;
     // checkPalindrome(n);
-    if (isArmstrong(n))
-    {
-        cout << n << " is an Armstrong number." << endl;
-    }
-    else
-    {
-        cout << n << " is not an Armstrong number." << endl;
-    }
+    // if (isArmstrong(n))
+    // {
+    //     cout << n << " is an Armstrong number." << endl;
+    // }
+    // else
+    // {
+    //     cout << n << " is not an Armstrong number." << endl;
+    // }
+
+    printallDivisor(36);
 }
