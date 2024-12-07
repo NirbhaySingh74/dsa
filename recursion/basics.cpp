@@ -22,8 +22,20 @@ void print1toN(int current, int n)
     print1toN(current + 1, n);
 }
 
+void printname(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+
+    cout << "Nirbhay" << " ";
+    printname(n - 1);
+}
+
 int main()
 {
-    printNTo1(10);
-    print1toN(1, 10);
+    // printNTo1(10);
+    // print1toN(1, 10);
+    printname(5);
 }
