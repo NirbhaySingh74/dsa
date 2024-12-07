@@ -33,9 +33,19 @@ void printname(int n)
     printname(n - 1);
 }
 
+int sumofN(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    return n + sumofN(n - 1);
+}
+
 int main()
 {
     // printNTo1(10);
     // print1toN(1, 10);
-    printname(5);
+    // printname(5);
+    cout << sumofN(10) << endl;
 }
