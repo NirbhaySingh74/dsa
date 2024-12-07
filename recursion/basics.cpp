@@ -50,11 +50,22 @@ int factorialOfN(int n)
     return n * factorialOfN(n - 1);
 }
 
+void print1toNBackTracking(int n)
+{
+    if (n < 1)
+    {
+        return;
+    }
+
+    print1toNBackTracking(n - 1);
+    cout << n << " ";
+}
 int main()
 {
     // printNTo1(10);
     // print1toN(1, 10);
     // printname(5);
     // cout << sumofN(10) << endl;
-    cout << factorialOfN(5) << endl;
+    // cout << factorialOfN(5) << endl;
+    print1toNBackTracking(10);
 }
