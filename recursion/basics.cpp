@@ -42,10 +42,19 @@ int sumofN(int n)
     return n + sumofN(n - 1);
 }
 
+int factorialOfN(int n)
+{
+    if (n == 1)
+        return 1;
+
+    return n * factorialOfN(n - 1);
+}
+
 int main()
 {
     // printNTo1(10);
     // print1toN(1, 10);
     // printname(5);
-    cout << sumofN(10) << endl;
+    // cout << sumofN(10) << endl;
+    cout << factorialOfN(5) << endl;
 }
