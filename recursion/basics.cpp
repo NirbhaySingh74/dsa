@@ -115,6 +115,20 @@ void reverseArrRec(int i, int n, int arr[])
     reverseArrRec(i + 1, n, arr);
 }
 
+bool checkPalindrome(string str)
+{
+    int n = str.length() - 1, i = 0;
+    while (i < n)
+    {
+        if (str[i] != str[n])
+        {
+            return false;
+        }
+        i++, n--;
+    }
+    return true;
+}
+
 int main()
 {
     // printNTo1(10);
@@ -124,14 +138,23 @@ int main()
     // cout << factorialOfN(5) << endl;
     // print1toNBackTracking(10);
     // vector<int> arr = {10, 20, 30, 40};
-    int arr[] = {10, 20, 30, 40, 50};
+    // int arr[] = {10, 20, 30, 40, 50};
     // reverseArr(arr);
     // reverseArrWithotRVar(arr);
-    reverseArrRec(0, 5, arr);
+    // reverseArrRec(0, 5, arr);
 
-    for (int i = 0; i < 5; i++)
+    // for (int i = 0; i < 5; i++)
+    // {
+    //     cout << arr[i] << " ";
+    // }
+
+    if (checkPalindrome("ABCDCBA"))
     {
-        cout << arr[i] << " ";
+        cout << "true";
+    }
+    else
+    {
+        cout << "false";
     }
     return 0;
 }
