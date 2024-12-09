@@ -71,6 +71,7 @@ void printNto1BackTracking(int n)
     print1toNBackTracking(n - 1);
     cout << n << " ";
 }
+
 int main()
 {
     // printNTo1(10);
@@ -79,4 +80,20 @@ int main()
     // cout << sumofN(10) << endl;
     // cout << factorialOfN(5) << endl;
     // print1toNBackTracking(10);
+    int arr[] = {10, 20, 30, 40};
+    int l = 0, r = 3;
+    while (l < r)
+    {
+        int temp = arr[l];
+        arr[l] = arr[r];
+        arr[r] = temp;
+        l++, r--;
+    }
+
+    for (int i = 0; i < 4; i++)
+    {
+        cout << arr[i] << " ";
+    }
+
+    return 0;
 }
