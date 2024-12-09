@@ -129,6 +129,17 @@ bool checkPalindrome(string str)
     return true;
 }
 
+bool checkPalindromeRec(int i, int n, string str)
+{
+    if (i >= n / 2)
+        return true;
+
+    if (str[i] != str[n - i - 1])
+        return false;
+
+    return checkPalindromeRec(i + 1, n, str);
+}
+
 int main()
 {
     // printNTo1(10);
@@ -147,8 +158,9 @@ int main()
     // {
     //     cout << arr[i] << " ";
     // }
-
-    if (checkPalindrome("ABCDCBA"))
+    string str = "MADAMM";
+    int n = str.length();
+    if (checkPalindromeRec(0, n, str))
     {
         cout << "true";
     }
