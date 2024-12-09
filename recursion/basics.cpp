@@ -1,4 +1,6 @@
 #include <iostream>
+#include <bits/stdc++.h>
+#include <vector>
 using namespace std;
 
 void printNTo1(int n)
@@ -72,15 +74,8 @@ void printNto1BackTracking(int n)
     cout << n << " ";
 }
 
-int main()
+void reverseArr(vector<int> arr)
 {
-    // printNTo1(10);
-    // print1toN(1, 10);
-    // printname(5);
-    // cout << sumofN(10) << endl;
-    // cout << factorialOfN(5) << endl;
-    // print1toNBackTracking(10);
-    int arr[] = {10, 20, 30, 40};
     int l = 0, r = 3;
     while (l < r)
     {
@@ -89,11 +84,54 @@ int main()
         arr[r] = temp;
         l++, r--;
     }
+    for (int num : arr)
+    {
+        cout << num << " ";
+    }
+}
 
-    for (int i = 0; i < 4; i++)
+void reverseArrWithotRVar(vector<int> arr)
+{
+    int i = 0, n = arr.size();
+    while (i <= n / 2)
+    {
+        int temp = arr[i];
+        arr[i] = arr[n - i - 1];
+        arr[n - i - 1] = temp;
+        i++;
+    }
+    for (int num : arr)
+    {
+        cout << num << " ";
+    }
+}
+
+void reverseArrRec(int i, int n, int arr[])
+{
+    if (i >= n / 2)
+        return;
+
+    swap(arr[i], arr[n - i - 1]);
+    reverseArrRec(i + 1, n, arr);
+}
+
+int main()
+{
+    // printNTo1(10);
+    // print1toN(1, 10);
+    // printname(5);
+    // cout << sumofN(10) << endl;
+    // cout << factorialOfN(5) << endl;
+    // print1toNBackTracking(10);
+    // vector<int> arr = {10, 20, 30, 40};
+    int arr[] = {10, 20, 30, 40, 50};
+    // reverseArr(arr);
+    // reverseArrWithotRVar(arr);
+    reverseArrRec(0, 5, arr);
+
+    for (int i = 0; i < 5; i++)
     {
         cout << arr[i] << " ";
     }
-
     return 0;
 }
