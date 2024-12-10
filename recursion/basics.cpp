@@ -170,3 +170,32 @@ int main()
     }
     return 0;
 }
+
+// const [count, setCount] = useState(0);
+// function increment() {
+//   setCount(count + 1);
+//   console.log(count); // Logs the previous value
+// }
+
+// app.get('/data', async (req, res) => {
+//   const result = await database.find({});
+// console.log(result);
+//   res.send(result);
+// });
+
+// You are given an array of integers nums and an integer target. Return the indices of the two numbers such that they add up to the target.
+
+// You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+// Input:
+
+//  nums = [2, 7, 11, 15]
+//  target = 9
+
+// Output:
+
+// [0, 1]
+
+// Explanation:
+
+// nums[0] + nums[1] = 2 + 7 = 9
