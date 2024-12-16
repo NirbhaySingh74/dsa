@@ -16,7 +16,7 @@ bool check_sorted(vector<int> &arr)
 
 int main()
 {
-    vector<int> arr = {11, 2, 3, 4, 14, 5, 6};
+    vector<int> arr = {3, 4, 5, 1, 2};
     if (check_sorted(arr))
     {
         cout << "true" << endl;
