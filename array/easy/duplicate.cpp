@@ -1,19 +1,27 @@
 #include <iostream>
-#include <set>
 #include <vector>
 using namespace std;
 
+void removeDuplivates(vector<int> &nums)
+{
+    int i = 0;
+    for (int j = 1; j < nums.size(); j++)
+    {
+        if (nums[j] != nums[i])
+        {
+            nums[i + 1] = nums[j];
+            i++;
+        }
+    }
+    nums.resize(i + 1);
+}
+
 int main()
 {
-    vector<int> arr = {1, 1, 2, 3, 2, 4, 5, 4, 6};
-    set<int> set;
+    vector<int> nums = {11, 11, 12, 12, 12, 14, 15, 24, 26};
 
-    for (int num : arr)
-    {
-        set.insert(num);
-    }
-
-    for (int num : set)
+    removeDuplivates(nums);
+    for (int num : nums)
     {
         cout << num << " ";
     }
