@@ -18,7 +18,7 @@ void removeDuplivates(vector<int> &nums)
 
 int main()
 {
-    vector<int> nums = {11, 11, 12, 12, 12, 14, 15, 24, 26};
+    vector<int> nums = {10, 11, 12, 12, 12, 14, 15, 24, 26};
 
     removeDuplivates(nums);
     for (int num : nums)
