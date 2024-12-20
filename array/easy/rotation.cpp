@@ -1,5 +1,5 @@
+#include <bits/stdc++.h>
 #include <iostream>
-#include <vector>
 using namespace std;
 
 void leftRoteteBy1Place(vector<int> &arr, int n)
@@ -15,7 +15,9 @@ void leftRoteteBy1Place(vector<int> &arr, int n)
 void left_Rotate_By_K_Place(vector<int> &arr, int k)
 {
     vector<int> temp;
-    int n = arr.size(), t = 0;
+    int n = arr.size();
+    k = k % n;
+
     for (int i = 0; i < k; i++)
     {
         temp.push_back(arr[i]);
@@ -28,17 +30,25 @@ void left_Rotate_By_K_Place(vector<int> &arr, int k)
 
     for (int j = n - k; j < n; j++)
     {
-        arr[j] = temp[t];
-        t++;
+        arr[j] = temp[j - (n - k)];
     }
+}
+
+void left_Rotate_By_K_Optimal(int arr[], int n, int k)
+{
+    reverse(arr, arr + k);
+    reverse(arr + k, arr + n);
+    reverse(arr, arr + n);
 }
 
 int main()
 {
     vector<int> arr = {1, 2, 3, 4, 5, 6};
+    int nums[] = {1, 2, 3, 4, 5, 6};
     // leftRoteteBy1Place(arr, arr.size());
-    left_Rotate_By_K_Place(arr, 3);
-    for (int num : arr)
+    // left_Rotate_By_K_Place(arr, 7);
+    left_Rotate_By_K_Optimal(nums, 6, 4);
+    for (int num : nums)
     {
         cout << num << " ";
     }
