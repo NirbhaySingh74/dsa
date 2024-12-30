@@ -60,7 +60,7 @@ void mergeSort(vector<int> &arr, int low, int high)
 
 int main()
 {
-    vector<int> arr = {38, 27, 43, 3, 9, 82, 10};
+    vector<int> arr = {38, 27, 43, 3, 9, 82, 10, 9, 8, 12};
     cout << "Original array: ";
     for (int num : arr)
         cout << num << " ";
