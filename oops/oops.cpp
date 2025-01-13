@@ -3,8 +3,8 @@ using namespace std;
 class Teacher
 {
     // attributes/ properties
+public:
     string name;
-    string dept;
     string dept;
     string subject;
     double salary;
@@ -18,5 +18,11 @@ class Teacher
 
 int main()
 {
-    cout << "oops";
+    Teacher t1;
+    t1.name = "Nirbhay";
+    t1.subject = "Python";
+    t1.dept = "Computer Science";
+    t1.salary = 20000;
+    cout << t1.name << " " << t1.dept;
+    return 0;
 }
