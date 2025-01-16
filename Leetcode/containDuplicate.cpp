@@ -89,11 +89,25 @@ bool BetterContianDuplicate(vector<int> nums)
 
 bool optimal_containDuplicate(vector<int> nums)
 {
+    set<int> st;
+    int n = nums.size();
+    for (int i = 0; i < n; i++)
+    {
+        if (st.find(nums[i]) == st.end())
+        {
+            st.insert(nums[i]);
+        }
+        else
+        {
+            return true;
+        }
+    }
+    return false;
 }
 
 int main()
 {
-    vector<int> nums = {1, 3, 2, 5, 4};
+    vector<int> nums = {1, 3, 2, 5, 4, 4};
     // if (containDup(nums))
     // {
     //     cout << "True";
@@ -102,8 +116,17 @@ int main()
     // {
     //     cout << "False";
     // }
-    mergeSort(nums, 0, nums.size());
-    if (BetterContianDuplicate(nums))
+    // mergeSort(nums, 0, nums.size());
+    // if (BetterContianDuplicate(nums))
+    // {
+    //     cout << "True";
+    // }
+    // else
+    // {
+    //     cout << "False";
+    // }
+
+    if (optimal_containDuplicate(nums))
     {
         cout << "True";
     }
@@ -111,6 +134,5 @@ int main()
     {
         cout << "False";
     }
-
     return 0;
 }
