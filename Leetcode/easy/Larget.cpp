@@ -36,9 +36,24 @@ int secondLargest(vector<int> &nums)
 
     return slargest;
 }
+
+// smallest element in array
+int smallest(vector<int> &nums)
+{
+    int smallest = nums[0];
+    for (int num : nums)
+    {
+        if (num < smallest)
+        {
+            smallest = num;
+        }
+    }
+    return smallest;
+}
 int main()
 {
     vector<int> nums = {1, 2, 4, 7, 7, 5};
-    cout << "Largest : " << FindMax(nums) << endl;
-    cout << "Second Largest : " << secondLargest(nums);
+    cout << "Largest Element: " << FindMax(nums) << endl;
+    cout << "Second Largest Element : " << secondLargest(nums) << endl;
+    cout << "Smallest Element : " << smallest(nums);
 }
