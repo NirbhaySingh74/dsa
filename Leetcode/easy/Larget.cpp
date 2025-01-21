@@ -50,10 +50,31 @@ int smallest(vector<int> &nums)
     }
     return smallest;
 }
+
+// find second smallest
+int second_smallest(vector<int> &nums)
+{
+    int smallest = INT_MAX, ssmallest = INT_MAX;
+    cout << smallest << endl;
+    for (int num : nums)
+    {
+        if (num < smallest)
+        {
+            ssmallest = smallest;
+            smallest = num;
+        }
+        else if (num < ssmallest && num != smallest)
+        {
+            ssmallest = num;
+        }
+    }
+    return ssmallest;
+}
 int main()
 {
     vector<int> nums = {1, 2, 4, 7, 7, 5};
     cout << "Largest Element: " << FindMax(nums) << endl;
     cout << "Second Largest Element : " << secondLargest(nums) << endl;
-    cout << "Smallest Element : " << smallest(nums);
+    cout << "Smallest Element : " << smallest(nums) << endl;
+    cout << "Second Smallest Element : " << second_smallest(nums);
 }
