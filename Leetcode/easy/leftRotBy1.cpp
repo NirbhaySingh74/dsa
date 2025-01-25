@@ -2,6 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// The array is running for n time so the time complxity is 0(n) and space complexity is o(1)
 void leftRotateBy1Place(vector<int> &nums)
 {
     int n = nums.size();
