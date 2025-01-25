@@ -19,10 +19,25 @@ int removeDupBrute(vector<int> &nums)
     return st.size();
 }
 
+// optimal approach which takes o(n) Time complexity
+int removeDuplicates(vector<int> &nums)
+{
+    int i = 0;
+    for (int j = 0; j < nums.size(); j++)
+    {
+        if (nums[j] != nums[i])
+        {
+            nums[i + 1] = nums[j];
+            i++;
+        }
+    }
+    return i;
+}
 int main()
 {
-    vector<int> nums = {1, 1, 2, 2, 2, 3, 3};
-    cout << removeDupBrute(nums) << endl;
+    vector<int> nums = {1, 1, 2, 2, 3, 3};
+    // cout << removeDupBrute(nums) << endl;
+    cout << removeDuplicates(nums) << endl;
 
     for (int num : nums)
     {
