@@ -36,10 +36,21 @@ void leftRotByDBrute(vector<int> &nums, int d)
     }
 }
 
+// left rotate by d place optimal approach
+// Time Complexity: o(n), space com : 0(1)
+void lrbd(vector<int> &nums, int d)
+{
+    int n = nums.size();
+    d = d % n;
+    reverse(nums.begin(), nums.end() - d);
+    reverse(nums.end() - d, nums.end());
+    reverse(nums.begin(), nums.end());
+}
 int main()
 {
     vector<int> nums = {1, 2, 3, 4, 5, 6, 7};
-    leftRotByDBrute(nums, 10);
+    // leftRotByDBrute(nums, 10);
+    lrbd(nums, 3);
 
     for (int num : nums)
     {
