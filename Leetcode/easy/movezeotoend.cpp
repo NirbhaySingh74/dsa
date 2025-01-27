@@ -26,11 +26,35 @@ void movezero(vector<int> &nums)
     }
 }
 
+// optimal approach to move zero end
+void optimalmovez(vector<int> &nums)
+{
+
+    int j = -1, n = nums.size();
+    for (int i = 0; i < nums.size() - 1; i++)
+    {
+        if (nums[i] == 0)
+        {
+            j = i;
+            break;
+        }
+    }
+
+    // swap element
+    for (int i = j + 1; i < n; i++)
+    {
+        if (nums[i] != 0)
+        {
+            swap(nums[i], nums[j]);
+            j++;
+        }
+    }
+}
 int main()
 {
     vector<int> nums = {1, 0, 2, 3, 0, 4, 0, 1};
-    movezero(nums);
-
+    // movezero(nums);
+    optimalmovez(nums);
     for (int num : nums)
     {
         cout << num << " ";
