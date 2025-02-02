@@ -18,10 +18,30 @@ bool isPrime(int num)
     return true;
 }
 
+// optimal approach which runs sqrt(num)
+bool isPrimeOpt(int num)
+{
+    int count = 0;
+    for (int i = 1; i * i <= num; i++)
+    {
+        cout << i << " ";
+        if (num % i == 0)
+        {
+            count++;
+            // cout << num / i << " " << endl;
+
+            if (num / i != i)
+                count++;
+        }
+    }
+    cout << "Count" << count << endl;
+    return count == 2;
+}
+
 int main()
 {
-    int num = 1;
-    if (isPrime(num))
+    int num = 11;
+    if (isPrimeOpt(num))
     {
         cout << "True";
     }
