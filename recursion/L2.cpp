@@ -18,12 +18,22 @@ void print1ToNLin(int n, int i)
     cout << i << " ";
     print1ToNLin(n, i + 1);
 }
+
+// Print N from 1
+void printNTo1Lin(int n)
+{
+    if (n < 1)
+        return;
+    cout << n << " ";
+    printNTo1Lin(n - 1);
+}
 int main()
 {
     int n;
     cout << "Enter N" << endl;
     cin >> n;
     // printName(1);
-    print1ToNLin(n, 1);
+    // print1ToNLin(n, 1);
+    printNTo1Lin(n);
     return 0;
 }
