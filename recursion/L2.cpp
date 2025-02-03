@@ -18,8 +18,16 @@ void print1ToNLin(int n, int i)
     cout << i << " ";
     print1ToNLin(n, i + 1);
 }
+// Print Linerally from 1 To N By BackTracking
+void print1ToNBackTracking(int n)
+{
+    if (n < 1)
+        return;
+    print1ToNBackTracking(n - 1);
+    cout << n << " ";
+}
 
-// Print N from 1
+// Print N To 1
 void printNTo1Lin(int n)
 {
     if (n < 1)
@@ -34,6 +42,7 @@ int main()
     cin >> n;
     // printName(1);
     // print1ToNLin(n, 1);
-    printNTo1Lin(n);
+    // printNTo1Lin(n);.
+    print1ToNBackTracking(n);
     return 0;
 }
