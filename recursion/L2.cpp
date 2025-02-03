@@ -52,6 +52,14 @@ int sum(int n)
         return 1;
     return n + sum(n - 1);
 }
+
+// factorial of N
+int factorial(int n)
+{
+    if (n == 1)
+        return 1;
+    return n * factorial(n - 1);
+}
 int main()
 {
     int n;
@@ -63,6 +71,7 @@ int main()
     // print1ToNBackTracking(n);
     // cout << endl;
     // printNTo1BackTracking(n, 1);
-    cout << sum(n);
+    cout << sum(n) << endl;
+    cout << factorial(n);
     return 0;
 }
