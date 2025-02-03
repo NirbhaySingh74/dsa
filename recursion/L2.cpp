@@ -18,6 +18,15 @@ void print1ToNLin(int n, int i)
     cout << i << " ";
     print1ToNLin(n, i + 1);
 }
+// Print N to 1 using Backtracking
+void printNTo1BackTracking(int n, int i)
+{
+    if (i > n)
+        return;
+
+    printNTo1BackTracking(n, i + 1);
+    cout << i << " ";
+}
 // Print Linerally from 1 To N By BackTracking
 void print1ToNBackTracking(int n)
 {
@@ -44,5 +53,8 @@ int main()
     // print1ToNLin(n, 1);
     // printNTo1Lin(n);.
     print1ToNBackTracking(n);
+    cout << endl;
+    printNTo1BackTracking(n, 1);
+
     return 0;
 }
