@@ -15,10 +15,20 @@ void revArr(vector<int> &nums)
         r--;
     }
 }
+
+// reverse an array using recursion
+void reverseArrRec(vector<int> &nums, int i, int n)
+{
+    if (i >= n / 2)
+        return;
+    swap(nums[i], nums[n - i - 1]);
+    reverseArrRec(nums, i + 1, n);
+}
 int main()
 {
-    vector<int> nums = {1, 2, 3, 4, 5};
-    revArr(nums);
+    vector<int> nums = {1, 2, 3, 4, 5, 6};
+    // revArr(nums);
+    reverseArrRec(nums, 0, nums.size());
     for (int num : nums)
     {
         cout << num << " ";
