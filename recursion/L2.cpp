@@ -44,6 +44,14 @@ void printNTo1Lin(int n)
     cout << n << " ";
     printNTo1Lin(n - 1);
 }
+
+// sum of first n numbers
+int sum(int n)
+{
+    if (n == 1)
+        return 1;
+    return n + sum(n - 1);
+}
 int main()
 {
     int n;
@@ -52,9 +60,9 @@ int main()
     // printName(1);
     // print1ToNLin(n, 1);
     // printNTo1Lin(n);.
-    print1ToNBackTracking(n);
-    cout << endl;
-    printNTo1BackTracking(n, 1);
-
+    // print1ToNBackTracking(n);
+    // cout << endl;
+    // printNTo1BackTracking(n, 1);
+    cout << sum(n);
     return 0;
 }
