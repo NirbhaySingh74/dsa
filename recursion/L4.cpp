@@ -24,13 +24,31 @@ void reverseArrRec(vector<int> &nums, int i, int n)
     swap(nums[i], nums[n - i - 1]);
     reverseArrRec(nums, i + 1, n);
 }
+
+// check a string is palindrome or not
+bool checkPalindrome(string str, int i, int n)
+{
+    if (i >= n)
+        return true;
+    if (str[i] != str[n])
+        return false;
+
+    checkPalindrome(str, i + 1, n - 1);
+}
 int main()
 {
     vector<int> nums = {1, 2, 3, 4, 5, 6};
     // revArr(nums);
-    reverseArrRec(nums, 0, nums.size());
-    for (int num : nums)
-    {
-        cout << num << " ";
-    }
+    // reverseArrRec(nums, 0, nums.size());
+    // for (int num : nums)
+    // {
+    //     cout << num << " ";
+    // }
+
+    // check palindrom
+    string str = "nammanr";
+    if (checkPalindrome(str, 0, str.length() - 1))
+        cout << "Palindrome";
+    else
+        cout << "Not Palindrome";
 }
