@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// find fabonici of number
+// find nth fabonici number Time complexity - o(n^n) and space complexity - 0(n)
 int fabonici(int n)
 {
     if (n <= 1)
