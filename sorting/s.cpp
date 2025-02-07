@@ -24,20 +24,30 @@ void sele_sort(vector<int> &nums)
 // bubble sort takes o(n^2) Time complexity
 void bubble_sort(vector<int> &nums)
 {
-    int n = nums.size();
-    for (int i = n - 1; i >= 0; i--)
+    int n = nums.size(), k = 0, swap = 0;
+    for (int i = n - 1; i >= 1; i--)
     {
         for (int j = 0; j < i; j++)
         {
+            cout << "It runs only for" << i << endl;
             if (nums[j] > nums[j + 1])
-                swap(nums[j], nums[j + 1]);
+            {
+                // swap(nums[j], nums[j + 1]);
+                swap = 1;
+                int temp = nums[j + 1];
+                nums[j + 1] = nums[j];
+                nums[j] = temp;
+            }
         }
+        // cout << nums[n - k - 1] << endl;
+        k++;
+        if (swap == 0)
+            break;
     }
 }
-
 int main()
 {
-    vector<int> nums = {13, 46, 24, 52, 20, 9, 3, 4};
+    vector<int> nums = {1, 2, 3, 4, 5};
     // sele_sort(nums);
     bubble_sort(nums);
     // print the array
