@@ -45,11 +45,29 @@ void bubble_sort(vector<int> &nums)
             break;
     }
 }
+
+// insertion_Sort
+void insertion_sort(vector<int> &nums)
+{
+    int n = nums.size();
+    for (int i = 0; i <= n - 1; i++)
+    {
+        int j = i;
+        while (j > 0 && nums[j - 1] > nums[j])
+        {
+            int temp = nums[j - 1];
+            nums[j - 1] = nums[j];
+            nums[j] = temp;
+            j--;
+        }
+    }
+}
 int main()
 {
-    vector<int> nums = {1, 2, 3, 4, 5};
+    vector<int> nums = {11, 2, 3, 12, 25, 7, 9, 6};
     // sele_sort(nums);
-    bubble_sort(nums);
+    // bubble_sort(nums);
+    insertion_sort(nums);
     // print the array
     for (int num : nums)
     {
