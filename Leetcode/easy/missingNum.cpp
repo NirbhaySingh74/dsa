@@ -43,9 +43,23 @@ int betteorMissingNum(vector<int> &nums)
     return -1;
 }
 
+// optimal approach with o(n) time complexity and o(1) space complexity
+int optimal(vector<int> &nums)
+{
+    int n = nums.size() + 1, sum = 0;
+    int sn = (n * (n + 1)) / 2;
+    // cout << "Sn" << sn;
+    for (int num : nums)
+    {
+        sum += num;
+    }
+    return sn - sum;
+}
+
 int main()
 {
-    vector<int> nums = {1, 2, 3, 4, 6};
+    vector<int> nums = {1, 2, 4, 5};
     // cout << bruteMissingNum(nums);
-    cout << betteorMissingNum(nums);
+    // cout << betteorMissingNum(nums);
+    cout << optimal(nums);
 }
