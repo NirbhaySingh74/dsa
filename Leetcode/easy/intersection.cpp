@@ -24,13 +24,39 @@ vector<int> intersection(vector<int> &A, vector<int> &B, int n, int m)
     return ans;
 }
 
+// This is optimal approach which takes o(n + m) time complexity and o(n) space complexity
+vector<int> optimalIntersectionOfTwoSortedArr(vector<int> &A, vector<int> &B, int n, int m)
+{
+    vector<int> ans;
+    int i = 0, j = 0;
+    while (i < n && j < m)
+    {
+        if (A[i] < B[j])
+        {
+            i++;
+        }
+        else if (B[j] < A[i])
+        {
+            j++;
+        }
+        else
+        {
+            ans.push_back(A[i]);
+            i++;
+            j++;
+        }
+    }
+    return ans;
+}
+
 int main()
 {
     vector<int> A = {1, 2, 3, 3, 4, 5, 6};
-    vector<int> B = {3, 3, 5};
+    vector<int> B = {3, 3, 4, 5};
 
     vector<int> ans;
-    ans = intersection(A, B, A.size(), B.size());
+    // ans = intersection(A, B, A.size(), B.size());
+    ans = optimalIntersectionOfTwoSortedArr(A, B, A.size(), B.size());
     // cout << ans.size() << endl;
     for (int num : ans)
     {
