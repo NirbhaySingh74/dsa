@@ -56,10 +56,28 @@ int optimal(vector<int> &nums)
     return sn - sum;
 }
 
+// second optimal using xor
+int second_optimal(vector<int> nums, int n)
+{
+    int xor1 = 0, xor2 = 0;
+
+    for (int i = 0; i < n - 1; i++)
+    {
+        xor1 ^= nums[i];
+    }
+
+    for (int i = 1; i <= n; i++)
+    {
+        xor2 ^= i;
+    }
+
+    return xor1 ^ xor2;
+}
 int main()
 {
     vector<int> nums = {1, 2, 4, 5};
     // cout << bruteMissingNum(nums);
     // cout << betteorMissingNum(nums);
-    cout << optimal(nums);
+    // cout << optimal(nums);
+    cout << second_optimal(nums, nums.size());
 }
