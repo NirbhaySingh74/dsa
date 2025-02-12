@@ -42,10 +42,22 @@ int better_approach(vector<int> &nums)
     }
     return -1;
 }
+
+// optimal apprach using xor operatoer which takes o(n) time complexity
+int optimal_apprach(vector<int> &nums)
+{
+    int xorr = 0;
+    for (int num : nums)
+    {
+        xorr = xorr ^ num;
+    }
+    return xorr;
+}
 int main()
 {
     vector<int> nums = {1, 1, 2, 3, 3, 4, 4, 5, 5};
     // cout << single_num(nums);
-    cout << better_approach(nums);
+    // cout << better_approach(nums);
+    cout << optimal_apprach(nums);
     return 0;
 }
