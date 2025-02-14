@@ -1,9 +1,9 @@
 #include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 // brute force approach which takes o(n^2) Time complexity
-vector<int> two_pointer_brute(vector<int> &nums, int target)
+vector<int> two_sum_brute(vector<int> &nums, int target)
 {
     int n = nums.size();
     vector<int> ans;
@@ -25,12 +25,29 @@ vector<int> two_pointer_brute(vector<int> &nums, int target)
     return ans;
 }
 
+// better approach with hashing which takes o(n ^ logn) time complexity
+vector<int> twosum_better(vector<int> &nums, int target)
+{
+    map<int, int> mp;
+    for (int i = 0; i < nums.size(); i++)
+    {
+        int more = target - nums[i];
+        if (mp.find(more) != mp.end())
+        {
+            return {mp[more], i};
+        }
+        mp[nums[i]] = i;
+    }
+    return {-1, -1};
+}
+
 int main()
 {
     vector<int> nums = {2, 6, 5, 8, 11};
     int target = 11;
     vector<int> ans;
-    ans = two_pointer_brute(nums, target);
+    // ans = two_sum_brute(nums, target);
+    ans = twosum_better(nums, target);
 
     for (int num : ans)
     {
