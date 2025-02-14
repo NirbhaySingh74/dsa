@@ -41,13 +41,39 @@ vector<int> twosum_better(vector<int> &nums, int target)
     return {-1, -1};
 }
 
+// ṭwo pointer approach
+vector<int> twoPointerOptimal(vector<int> &nums, int target)
+{
+    sort(nums.begin(), nums.end());
+    int left = 0, right = nums.size() - 1;
+
+    while (left < right)
+    {
+        int sum = nums[left] + nums[right];
+        if (sum == target)
+        {
+            return {left, right};
+        }
+        else if (sum > target)
+        {
+            right;
+        }
+        else
+        {
+            left--;
+        }
+    }
+    return {};
+}
+
 int main()
 {
     vector<int> nums = {2, 6, 5, 8, 11};
     int target = 11;
     vector<int> ans;
     // ans = two_sum_brute(nums, target);
-    ans = twosum_better(nums, target);
+    // ans = twosum_better(nums, target);
+    ans = twoPointerOptimal(nums, target);
 
     for (int num : ans)
     {
