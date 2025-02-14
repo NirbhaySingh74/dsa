@@ -41,7 +41,7 @@ vector<int> twosum_better(vector<int> &nums, int target)
     return {-1, -1};
 }
 
-// ṭwo pointer approach
+// ṭwo pointer approach which takes o(n logn) for sorting and o(n) for traversing
 vector<int> twoPointerOptimal(vector<int> &nums, int target)
 {
     sort(nums.begin(), nums.end());
