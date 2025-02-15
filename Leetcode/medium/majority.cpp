@@ -26,7 +26,7 @@ int brute_findMajorityNum(vector<int> &nums, int N)
     return -1;
 }
 
-// better approach using map which takes o(N log N) time complexity
+// better approach using map which takes o(N log N) time complexity and o(n) space complexity
 int better_approach(vector<int> &nums, int N)
 {
     map<int, int> mp;
@@ -43,10 +43,33 @@ int better_approach(vector<int> &nums, int N)
     return -1;
 }
 
+// optimal approach takes o(n) time complexity
+int optimal(vector<int> &nums)
+{
+    int el, count = 0;
+    for (int i = 0; i < nums.size(); i++)
+    {
+        if (count == 0)
+        {
+            count++;
+            el = nums[i];
+        }
+        else if (nums[i] == el)
+        {
+            count++;
+        }
+        else
+        {
+            count--;
+        }
+    }
+    return el;
+}
 int main()
 {
     vector<int> nums = {3, 2, 3, 4, 4, 4, 4};
     // cout << brute_findMajorityNum(nums, nums.size());
-    cout << better_approach(nums, nums.size());
+    // cout << better_approach(nums, nums.size());
+    cout << optimal(nums);
     return 0;
 }
