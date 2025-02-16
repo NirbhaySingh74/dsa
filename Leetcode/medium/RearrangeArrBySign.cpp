@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-// Bruteforce method which takes o(2 ^ n) time and o(n) space
+// Bruteforce method which takes o(2 n) time and o(n) space
 void rearrangeArray(vector<int> &nums)
 {
     vector<int> temp1;
@@ -31,11 +31,40 @@ void rearrangeArray(vector<int> &nums)
     }
 }
 
+// optimal approach which takes o(n) time and o(n) space
+vector<int> optimal_Rearrange(vector<int> &nums)
+{
+    int n = nums.size();
+    int posIndex = 0, negIndex = 1;
+    vector<int> ans(n, 0);
+    for (int i = 0; i < n; i++)
+    {
+        if (nums[i] < 0)
+        {
+            ans[negIndex] = nums[i];
+            negIndex += 2;
+        }
+        else
+        {
+            ans[posIndex] = nums[i];
+            posIndex += 2;
+        }
+    }
+    return ans;
+}
+
 int main()
 {
     vector<int> nums = {1, 2, -4, -5};
-    rearrangeArray(nums);
+    // rearrangeArray(nums);
 
-    for (int num : nums)
+    // for (int num : nums)
+    //     cout << num << " ";
+
+    vector<int> ans;
+    ans = optimal_Rearrange(nums);
+    for (int num : ans)
+    {
         cout << num << " ";
+    }
 }
