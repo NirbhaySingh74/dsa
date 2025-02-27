@@ -47,6 +47,7 @@ int main()
     t1.dept = "Computer Science";
     cout << t1.name << " " << t1.dept << " ";
     t1.setSalary(20000);
-    cout << t1.getSalary();
+    cout << t1.getSalary()<<endl;
+
     return 0;
 }
