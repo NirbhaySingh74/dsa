@@ -29,14 +29,24 @@ public:
     }
 };
 
+class Account
+{
+private:
+    string password;
+    double balance; // Data Hinding
+public:
+    string accountId;
+    string username;
+};
+
 int main()
 {
     Teacher t1;
     t1.name = "Nirbhay";
     t1.subject = "Python";
     t1.dept = "Computer Science";
-    cout << t1.name << " " << t1.dept<<" ";
+    cout << t1.name << " " << t1.dept << " ";
     t1.setSalary(20000);
-    cout<<t1.getSalary();
+    cout << t1.getSalary();
     return 0;
 }
