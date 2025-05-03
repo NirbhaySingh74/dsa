@@ -32,7 +32,6 @@ int kadanes(vector<int> &nums)
         if (sum < 0)
             sum = 0;
     }
-
     return maxi;
 }
 

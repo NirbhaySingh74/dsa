@@ -5,29 +5,31 @@ using namespace std;
 // Bruteforce method which takes o(2 n) time and o(n) space
 void rearrangeArray(vector<int> &nums)
 {
-    vector<int> temp1;
-    vector<int> temp2;
-    for (int i = 0; i < nums.size(); i++)
-    {
-        if (nums[i] > 0)
-            temp1.push_back(nums[i]);
+    vector<int> posNums;
+    vector<int> negNums;
+    int n = nums.size(), j = 0, k = 0;
 
-        else
-            temp2.push_back(nums[i]);
-    }
-    int j = 0, k = 0;
-    for (int i = 0; i < nums.size(); i++)
+    // Correct logic to split based on sign
+    for (int i = 0; i < n; i++)
     {
-        if (i % 2 != 0)
-        {
-            nums[i] = temp2[j];
-            j++;
-        }
+        if (nums[i] >= 0)
+            posNums.push_back(nums[i]);
         else
-        {
-            nums[i] = temp1[k];
-            k++;
-        }
+            negNums.push_back(nums[i]);
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        if (i % 2 == 0 && j < posNums.size())
+            nums[i] = posNums[j++];
+        else if (i % 2 != 0 && k < negNums.size())
+            nums[i] = negNums[k++];
+    }
+
+    // Moved outside the loop
+    for (int num : nums)
+    {
+        cout << num << " ";
     }
 }
 
@@ -37,17 +39,17 @@ vector<int> optimal_Rearrange(vector<int> &nums)
     int n = nums.size();
     int posIndex = 0, negIndex = 1;
     vector<int> ans(n, 0);
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i<n; i++)
     {
-        if (nums[i] < 0)
+        if (nums[i] > 0)
         {
-            ans[negIndex] = nums[i];
-            negIndex += 2;
+            ans[posIndex] = nums[i];
+            posIndex = posIndex + 2;
         }
         else
         {
-            ans[posIndex] = nums[i];
-            posIndex += 2;
+            ans[negIndex] = nums[i];
+            negIndex = negIndex + 2;
         }
     }
     return ans;

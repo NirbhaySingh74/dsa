@@ -9,24 +9,21 @@ int longestConsecutiveSeq_Brut(vector<int> &nums)
     int longest = 1, mx = 1;
     for (int i = 1; i < nums.size(); i++)
     {
-        if (nums[i] != nums[i - 1])
+        if (nums[i] == nums[i - 1]) continue;
+        if (nums[i] - nums[i-1] == 1)
         {
-            if (nums[i] - nums[i - 1] == 1)
-            {
-                longest++;
-            }
-            else
-            {
-                mx = max(longest, mx);
-                longest = 1;
-            }
+            longest++;
         }
+        else
+        {
+            longest = 1;
+        }
+        mx = max(mx, longest);
     }
     return mx;
 }
 
 // optimal approach
-
 int optimal_Longest_con(vector<int> &nums)
 {
     int n = nums.size(), longest = 1;
@@ -59,8 +56,8 @@ int optimal_Longest_con(vector<int> &nums)
 
 int main()
 {
-    vector<int> nums = {1, 11, 2, 3, 6, 4, 100, 5, 101, 102, 3, 103};
-    // cout << longestConsecutiveSeq_Brut(nums);
-    cout << optimal_Longest_con(nums);
+    vector<int> nums = {3, 8, 5, 7, 6};
+    cout << longestConsecutiveSeq_Brut(nums);
+    // cout << optimal_Longest_con(nums);
     return 0;
 }
